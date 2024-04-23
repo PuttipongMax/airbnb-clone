@@ -1,6 +1,6 @@
 
 export default function IndexPage(){
  return (
-  <div>sdf</div>
+  <div>Index page here!!!</div>
  )
 }
