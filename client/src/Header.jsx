@@ -2,17 +2,22 @@ import { FaAirbnb } from "react-icons/fa6";
 import { FaSearch, FaUser } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export default function Header(){
- return (
+  const { user } = useContext(UserContext);
+  return (
   <div>
       <header className='flex justify-between'>
-        <a className='flex items-center gap-1'>
+        <Link
+        to="/"
+        className='flex items-center gap-1'>
           <FaAirbnb className='w-8 h-6' />
           <span className='font-bold text-xl'>
             airbnc
           </span>
-        </a>  
+        </Link>  
 
         <div className='flex border border-gray-300 
           py-2 px-4 rounded-full gap-2 shadow-md
@@ -27,13 +32,18 @@ export default function Header(){
           </button>  
         </div> 
 
-        <Link to={`/login`} className='flex items-center gap-2 border border-gray-300 
+        <Link to={user?'/account/profile':`/login`} className='flex items-center gap-2 border border-gray-300 
           py-2 px-4 rounded-full'>      
           <RxHamburgerMenu className='w-6 h-6' />
           <div className='bg-gray-500 text-white rounded-full
             border border-gray-500 overflow-hidden'>
             <FaUser className='w-6 h-6 relative top-1' />
           </div>
+          {!!user && (
+            <div>
+              {user.name}
+            </div>
+          )}
         </Link>
 
       </header>
