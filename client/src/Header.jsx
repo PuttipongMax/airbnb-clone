@@ -8,7 +8,7 @@ import { UserContext } from "./UserContext";
 export default function Header(){
   const { user } = useContext(UserContext);
   return (
-  <div>
+  <div className="">
       <header className='flex justify-between'>
         <Link
         to="/"
@@ -19,9 +19,9 @@ export default function Header(){
           </span>
         </Link>  
 
-        <div className='flex border border-gray-300 
+        <div className='sm:flex border border-gray-300 
           py-2 px-4 rounded-full gap-2 shadow-md
-          shadow-gray-500'>
+          shadow-gray-500 hidden'>
           <div>Anywhere</div>
           <div className='border-l border-gray-300' />
           <div>Any week</div>
