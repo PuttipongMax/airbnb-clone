@@ -88,46 +88,46 @@ export default function PlacesFormPage(){
      <form onSubmit={savePlace}>
       {preInput('Title', 'Title for your place. should be short and catch as in advertisment')}      
       <input type='text' value={title}   
-       onChange={(e) => setTitle(e.target.value)}
+       onChange={(e) => setTitle(e.target?.value)}
        placeholder="title, for example: My lovely apt" 
       />
       {preInput('Address', 'Address to your place')}
       <input type='text' value={address}
-       onChange={(e) => setAddress(e.target.value)}     
+       onChange={(e) => setAddress(e.target?.value)}     
        placeholder="address"
       />
       {preInput('Photos', 'more = better')}
       <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
       {preInput('Description', 'description of the place')}
       <textarea value={description} 
-       onChange={(e) => setDescription(e.target.value)} />  
+       onChange={(e) => setDescription(e.target?.value)} />  
       {preInput('Perks', 'select all the perks fo your place')}
       <Perks selected={perks} onChange={setPerks} />
       {preInput('Extra info', 'house rules, etc')}
       <textarea value={extraInfo} 
-       onChange={(e) => setExtraInfo(e.target.value)} />
+       onChange={(e) => setExtraInfo(e.target?.value)} />
       {preInput('Check in&out times', `add check in and out times, 
         remember to have some time window for cleaning the room between guests`)}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
        <div>
         <h3 className="mt-2 -mb-1">Check in time</h3>
         <input type="text" placeholder="14" value={checkIn} 
-         onChange={(e) => setCheckIn(e.target.value)} />
+         onChange={(e) => setCheckIn(e.target?.value)} />
        </div>
        <div>
         <h3 className="mt-2 -mb-1">Check out time</h3>
         <input type="text" placeholder="11" value={checkOut}
-         onChange={(e) => setCheckOut(e.target.value)} />
+         onChange={(e) => setCheckOut(e.target?.value)} />
        </div>
        <div>
         <h3 className="mt-2 -mb-1">Max number of guests</h3>
         <input type='number' value={maxGuests} 
-         onChange={(e) => setMaxGuests(e.target.value)} />
+         onChange={(e) => setMaxGuests(e.target?.value)} />
        </div>
        <div>
         <h3 className="mt-2 -mb-1">Price per night</h3>
         <input type='number' value={price} 
-         onChange={(e) => setPrice(e.target.value)} />
+         onChange={(e) => setPrice(e.target?.value)} />
        </div>
       </div>
       <div className="">
