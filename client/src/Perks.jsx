@@ -9,7 +9,7 @@ import {
 
 export default function Perks({ selected, onChange }){
  const handleCbClick = (e) => {
-  console.log(e.target.name)
+  e.preventDefault()
   const { checked, name } = e.target;
   if(checked){
      onChange([...selected, name])

@@ -1,12 +1,13 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function IndexPage(){
  const [places, setPlaces] = useState([]);
 
  useEffect(() => {
   axios.get('/places').then((response) => {
-   setPlaces([ ...response.data, ...response.data ]);
+   setPlaces( response.data );
   })
  }, []);
 
@@ -14,8 +15,9 @@ export default function IndexPage(){
   <div className="mt-8 grid gap-x-6 gap-y-8
    grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
    {places.length > 0 && places.map((place) => (
-    <div 
-     className="w-full mx-auto "
+    <Link 
+     to={'/place/'+place._id}
+     className=""
      key={Date.now()+Math.random().toString()}>
       <div className="bg-gray-500 mb-2 flex rounded-2xl">
       {place.photos?.[0] && (
@@ -31,7 +33,7 @@ export default function IndexPage(){
       <div className="mt-1">
        <span className="font-bold">${place.price}</span> per night
       </div>
-    </div>
+    </Link>
    ))}
   </div>
  )
