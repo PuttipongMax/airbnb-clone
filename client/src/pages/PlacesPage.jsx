@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import axios from "axios";
 import AccountNav from "../AccountNav";
+import PlaceImg from "../PlaceImg";
 
 export default function PlacesPage(){
   const [places, setPlaces] = useState([]);
@@ -35,12 +36,7 @@ export default function PlacesPage(){
         cursor-pointer flex-col md:flex-row"
       >
         <div className=" h-[250px] bg-gray-300 shrink-0 group">
-          {place.photos.length > 0 && (
-            <img src={'http://localhost:4000/uploads/'+place.photos[0]} alt="" 
-              className="w-full h-full object-cover duration-200
-              transition-transform group-hover:scale-105 "
-            />
-          )}
+          <PlaceImg place={place} />
         </div>
         <div className="grow-1 shrink">
           <h2>{place.title}</h2>
